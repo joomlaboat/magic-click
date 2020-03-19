@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>Magic Click - Front-end Content Assistant</name>
+	<author>Ivan Komlev</author>
+	<creationDate>February 2019</creationDate>
+	<copyright>Copyright (C) 2019 Ivan Komlev. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomlaboat.com</authorEmail>
+	<authorUrl>http://www.joomlaboat.com/</authorUrl>
+	<version>1.0.7</version>
+	<description>PLG_SYSTEM_MAGICCLICK_XML_DESCRIPTION_PRO</description>
+	<files>
+		<filename plugin="magicclick">magicclick.php</filename>
+		<folder>drivers</folder>
+		<folder>prodrivers</folder>
+		<folder>includes</folder>
+	</files>
+
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+
+	        <field
+                        name="hotkeys"
+                        type="list"
+                        label="PLG_MAGICCLICK_HOTKEYS_TITLE"
+                        description="PLG_MAGICCLICK_HOTKEYS_DESC"
+                        class="inputbox"
+                        default="ctrlalt"
+                >
+			<option value="ctrlalt">PLG_MAGICCLICK_HOTKEYS_CTRL_ALT</option>
+			<option value="shiftctrl">PLG_MAGICCLICK_HOTKEYS_SHIFT_CTRL</option>
+			<option value="shiftalt">PLG_MAGICCLICK_HOTKEYS_SHIFT_ALT</option>
+                </field>
+
+
+		<field
+                        name="availabletoadmin"
+                        type="radio"
+                        label="PLG_MAGICCLICK_ADMIN_TITLE"
+                        description="PLG_MAGICCLICK_ADMIN_DESC"
+                        class="btn-group"
+                        default="0"
+                >
+                        <option value="0">PLG_MAGICCLICK_NO</option>
+                        <option value="1">PLG_MAGICCLICK_YES</option>
+                </field>
+		</fieldset>
+
+	</fields>
+	</config>
+
+
+
+	<languages folder="language">
+	      <language tag="en-GB">en-GB/en-GB.plg_system_magicclick.ini</language>
+	      <language tag="en-GB">en-GB/en-GB.plg_system_magicclick.sys.ini</language>
+	</languages>
+
+
+	<updateservers>
+	    <server type="extension" priority="2" enabled="1" element="plg_magicclick" name="Magic Click - Front-end Content Assistant">link</server>
+	</updateservers>
+
+</extension>

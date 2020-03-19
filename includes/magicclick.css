@@ -1,0 +1,153 @@
+
+.magicclick_frontend_alert{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    text-align: center;
+    z-index:32767;
+
+  -webkit-animation: seconds 3.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 5s;
+  animation: seconds 3.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
+  transition-timing-function: ease-out;
+
+
+}
+@-webkit-keyframes seconds {
+    /*
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  */
+  100% {
+   /* opacity: 0;*/
+    top: -70px;
+
+  }
+}
+@keyframes seconds {
+    /*
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  */
+  100% {
+    /*opacity: 0;*/
+    top: -70px;
+
+  }
+}
+
+.magicclick_frontend_alert div{
+    background-color: red;
+    text-align: center;
+    display: inline-block;
+    color: white;
+
+    margin:0px;
+
+    padding:5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.magicclick_frontend_alert span{
+    font-weight: bold;
+}
+
+.magicclick_error{
+    color: red;
+}
+
+.magicclick_searching{
+    color: green;
+}
+
+
+.magicclick_match{
+    font-style: italic;
+    color: darkgreen;
+    margin-left:10px;
+}
+
+.magicclick_suggestion h3 span{
+    font-size: 0.7em;
+}
+
+.magicclick_suggestion p{
+    border:1px lightgrey solid;
+}
+
+.magicclick_suggestion li{
+    margin-left:20px;
+}
+
+.magicclick_suggestion_image
+{
+max-height: 50px;
+}
+
+/*
+.magicclick{
+	border:1px solid red;
+    display: contents;
+}
+*/
+
+/* --------------------------------------------------------- */
+/* The Modal (background) */
+.magicclick_modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 32000; /* Sit on top */
+    /*padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+
+}
+
+/* Modal Content */
+.magicclick_modal-content {
+    background-color: #fefefe;
+	position: fixed; /* Stay in place */
+    top:0;
+	left:0;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+	max-width:800px;
+}
+
+/* The Close Button */
+.magicclick_close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.magicclick_close:hover,
+.magicclick_close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
