@@ -1,0 +1,2 @@
+# magic-click
+Magic Click, Joomla Front-end Content Assistant, is an essential extension for all Joomla users who would like to easily locate and edit front-end content.  Not only new Joomla users may find editing content difficult because of a common issue - the location of Joomla content.  Thanks to Magic Click you will be able to locate required content; whether it is a module, component, article or a menu item.
