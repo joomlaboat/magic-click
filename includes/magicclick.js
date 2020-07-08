@@ -1,4 +1,11 @@
-//var MagicClickInWork=false;
+/**
+* Magic Click Joomla! Plugin
+*
+* @author    Ivan Komlev
+* @copyright Copyright (C) 2012-2018 Ivan Komlev. All rights reserved.
+* @license	 GNU/GPL
+*/
+
 var MagicClick_Translations_description="Front-end Content Assistant";
 var MagicClick_Translations_find="Find:";
 var MagicClick_Translations_foundlocations="Found locations:";
@@ -7,7 +14,6 @@ var MagicClick_Translations_searching="Searching";
 
 var MagicClick_theKey="";
 
-//var MagicClickElements=[];
 var MagicClickObjects=[];
 var MagicClickObjects_Index=-1;
 
@@ -20,29 +26,33 @@ function MagicClickObjectDisableProcess()
    MagicClickObjects=[];
 
    MagicClickObjectInProcess=false;
+}
 
+function MagicClickGetSelectedText() {
+    var text = "";
+    if (typeof window.getSelection != "undefined") {
+        text = window.getSelection().toString();
+    } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+        text = document.selection.createRange().text;
+    }
+    return text;
 }
 
 function processMagicClick()
 {
+
    if(MagicClickObjects.length==0)
    {
       MagicClickObjectDisableProcess();
       return;
    }
-  // alert(MagicClickObjects.length);
-//alert(JSON.stringify(MagicClickObjects));
 
    MagicClickObjects_Index=MagicClickObjectsFindTag("IMG");
-   //alert(MagicClickObjects_Index);
    if(MagicClickObjects_Index==-1)
       MagicClickObjects_Index=MagicClickObjectsFindTag("A");
 
    if(MagicClickObjects_Index==-1)
       MagicClickObjects_Index=0;
-
-      //alert(JSON.stringify(MagicClickObjects));
-      //alert(MagicClickObjects_Index);
 
    var MagicClickObject=MagicClickObjects[MagicClickObjects_Index];
    var TagName=MagicClickObject.tagName;
@@ -65,7 +75,7 @@ function MagicClickObjectsFindTag(tag)
    for(var i=0;i<MagicClickObjects.length;i++)
    {
       var tagName=MagicClickObjects[i].tagName;
-      //alert(tagName+','+tag);
+
       if(tagName==tag)
          return i;
    }
@@ -232,19 +242,17 @@ function make_MG_request(data,find,tag)
         //credentials: "same-origin"
     };
 
-//alert(find+'\n  '+url);
     fetch(url,other_params).then(function(response)
 	{
 
 			if(response.ok)
 			{
-				response.json().then(function(json)
+				response.json().then(function(json_response)
 				{
-
-                    if(json.status=='ok')
+                    if(json_response.status=='ok')
                     {
 
-                        magicclick_showSuggestions(find,json.suggestions,tag);
+                        magicclick_showSuggestions(find,json_response.suggestions,tag);
 
                     }
 
@@ -287,17 +295,53 @@ function doMagicClickOnAnchor(event)
 
 }
 
+function doMagicClick4SelectedText(event)
+{
+	var clicked=isSpecialKey(event);
+
+    if (clicked)
+    {
+		var selectedText=MagicClickGetSelectedText();
+		if(selectedText!='')
+		{
+			if(!MagicClickObjectInProcess)
+			{
+				MagicClickObjects.push(this);
+				MagicClickObjects_Index=0;
+			
+				MagicClickObjectInProcess=true;
+			
+				var data=[
+				"mc_tag=DIV",
+				"mc_Itemid="+MagicClick_Itemid,
+				"mc_content="+Base64.encode(selectedText),
+				"mc_url="+Base64.encode(location.href),
+				];
+
+				let timerId = setTimeout(function() {
+					make_MG_request(data,selectedText,'DIV');
+				
+				}, 500);
+			}
+
+			event.preventDefault();
+		}
+		
+	}
+}
+
 function doMagicClick(event)
 {
    var clicked=isSpecialKey(event);
 
     if (clicked)
     {
-         MagicClickObjects.push(this);
-
+		
          if(!MagicClickObjectInProcess)
          {
-            setTimeout(processMagicClick,0.5);
+			MagicClickObjects.push(this);
+			 
+            setTimeout(processMagicClick,500);
             MagicClickObjectInProcess=true;
          }
 
@@ -321,6 +365,7 @@ function mc_addClickEvents()
 
 //         var src=matches[i].getAttribute("src");
             matches[i].addEventListener("click", doMagicClick, false);
+			matches[i].addEventListener("mousedown", doMagicClick4SelectedText, false);
         }
     }
 
