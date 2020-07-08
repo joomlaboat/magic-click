@@ -2,12 +2,12 @@
 <extension version="2.5" type="plugin" group="system" method="upgrade">
 	<name>Magic Click - Front-end Content Assistant</name>
 	<author>Ivan Komlev</author>
-	<creationDate>February 2019</creationDate>
-	<copyright>Copyright (C) 2019 Ivan Komlev. All rights reserved.</copyright>
+	<creationDate>July 2020</creationDate>
+	<copyright>Copyright (C) 2019-2020 Ivan Komlev. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>support@joomlaboat.com</authorEmail>
 	<authorUrl>http://www.joomlaboat.com/</authorUrl>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<description>PLG_SYSTEM_MAGICCLICK_XML_DESCRIPTION_PRO</description>
 	<files>
 		<filename plugin="magicclick">magicclick.php</filename>
