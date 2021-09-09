@@ -195,7 +195,6 @@ function magicclick_check_template_get_template($style_id)
     $query = 'SELECT *,'.$ext.' FROM #__template_styles WHERE '.$where.' LIMIT 1';
 
 	$db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     $recs=$db->loadObjectList();
     if(count($recs)==0)

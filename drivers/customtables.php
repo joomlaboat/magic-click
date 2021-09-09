@@ -170,7 +170,6 @@ function magicclick_check_ct_layouts_find_by_content($content)
     $query = 'SELECT * FROM #__customtables_layouts WHERE  '.$where;
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     return $db->loadObjectList();
 }
@@ -192,7 +191,6 @@ function magicclick_check_ct_fields_find_by_title($content,$field)
     $query = 'SELECT id,tableid,fieldtitle,(SELECT tabletitle FROM #__customtables_tables AS t WHERE t.id=f.tableid LIMIT 1) AS tabletitle FROM #__customtables_fields AS f WHERE  '.$where;
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     return $db->loadObjectList();
 }

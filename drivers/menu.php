@@ -129,7 +129,6 @@ function magicclick_check_menu_find($where)
     $query = 'SELECT * FROM #__menu WHERE published=1 AND '.$where.' LIMIT 1';
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     $recs=$db->loadObjectList();
     if(count($recs)==0)

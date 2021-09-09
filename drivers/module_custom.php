@@ -131,10 +131,8 @@ function magicclick_module_custom_find($where)
     $query = 'SELECT * FROM #__modules WHERE  '.$where.' ';
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     $recs=$db->loadObjectList();
-
 
     return $recs;
 }

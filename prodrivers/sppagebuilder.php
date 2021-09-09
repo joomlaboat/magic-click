@@ -260,7 +260,6 @@ function magicclick_check_sppagebuilder_find($where)
     $query = 'SELECT * FROM #__sppagebuilder WHERE  '.$where.' ';
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     $recs=$db->loadObjectList();
     return $recs;

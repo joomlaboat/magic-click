@@ -193,7 +193,6 @@ function magicclick_check_revslider_find($where)
     $query = 'SELECT *,'.$s1.' FROM #__revslider_slides'.$w;
 
     $db->setQuery($query);
-    if (!$db->query())    die( $db->stderr());
 
     $recs=$db->loadObjectList();
     return $recs;

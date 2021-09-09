@@ -21,7 +21,7 @@ class plgSystemMagicClick extends JPlugin
 	{
 		$app = JFactory::getApplication();
 
-		if($app->isSite())
+		if($app->isClient('site'))
 		{
 			$availabletoadmin=(int)$this->params->get('availabletoadmin');
 
@@ -54,7 +54,7 @@ class plgSystemMagicClick extends JPlugin
 				else
 				{
 					$app = JFactory::getApplication();
-					if($app->isSite())
+					if($app->isClient('site'))
 					{
 						$hotkeys=$this->params->get('hotkeys');
 						if($hotkeys=='')
@@ -93,7 +93,7 @@ class plgSystemMagicClick extends JPlugin
 	{
 		$app = JFactory::getApplication();
 
-		if($app->isSite())
+		if($app->isClient('site'))
 		{
 			$path=JPATH_SITE.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'system'.DIRECTORY_SEPARATOR.'magicclick'.DIRECTORY_SEPARATOR.'includes';
 			require_once($path.DIRECTORY_SEPARATOR.'misc.php');
