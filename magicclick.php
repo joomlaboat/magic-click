@@ -66,8 +66,7 @@ class plgSystemMagicClick extends JPlugin
 			}
 		}
 
-
-		if($app->isAdmin())
+		if($apps->isClient('administrator'))
 		{
 
 			$output = JResponse::getBody();
