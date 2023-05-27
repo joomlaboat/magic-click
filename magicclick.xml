@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>support@joomlaboat.com</authorEmail>
 	<authorUrl>http://www.joomlaboat.com/</authorUrl>
-	<version>1.0.8</version>
+	<version>1.0.9</version>
 	<description>PLG_SYSTEM_MAGICCLICK_XML_DESCRIPTION_PRO</description>
 	<files>
 		<filename plugin="magicclick">magicclick.php</filename>
