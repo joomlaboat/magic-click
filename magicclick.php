@@ -53,7 +53,7 @@ class plgSystemMagicClick extends JPlugin
 				}
 				else
 				{
-					$app = JFactory::getApplication();
+					//$app = JFactory::getApplication();
 					if($app->isClient('site'))
 					{
 						$hotkeys=$this->params->get('hotkeys');
@@ -66,7 +66,7 @@ class plgSystemMagicClick extends JPlugin
 			}
 		}
 
-		if($apps->isClient('administrator'))
+		if($app->isClient('administrator'))
 		{
 
 			$output = JResponse::getBody();
